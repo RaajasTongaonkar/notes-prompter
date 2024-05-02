@@ -9,13 +9,21 @@
 import time
 from termcolor import colored
 from os import system
-system('cls')
+import platform
+
+# Need to make it 'cls' if windows and 'clear' if mac
+OSName = platform.platform()
+clearStr = "clear"
+if OSName=='Windows':
+    clearStr='cls'
+
+system(clearStr)
 t = 4
 while t > 0:
     t -= 1
     print(t)
     time.sleep(1)
-    system('cls')
+    system(clearStr)
 
 strumming = "D-D-D-DU-UD-DUDU"
 notes = [
@@ -66,6 +74,6 @@ for k in range(len(notes)):
             if k != len(notes) - 1:
                 print(notes[k + 1])
             time.sleep(0.22)
-            system('cls')
+            system(clearStr)
 
 
